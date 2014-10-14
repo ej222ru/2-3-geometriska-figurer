@@ -38,7 +38,7 @@ namespace _1DV402.S2.L3C
 		}
  
 		// methods
-		int CompareTo(object obj)
+		public int CompareTo(object obj)
 		{
 			if (obj == null) return 1;
 			if (this == obj) return 0;

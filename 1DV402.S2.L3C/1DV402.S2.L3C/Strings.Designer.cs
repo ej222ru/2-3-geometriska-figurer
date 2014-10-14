@@ -70,6 +70,69 @@ namespace _1DV402.S2.L3C {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cirkel.
+        /// </summary>
+        internal static string circle {
+            get {
+                return ResourceManager.GetString("circle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rätblock.
+        /// </summary>
+        internal static string cuboid {
+            get {
+                return ResourceManager.GetString("cuboid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cylinder.
+        /// </summary>
+        internal static string cylinder {
+            get {
+                return ResourceManager.GetString("cylinder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to =====================================.
+        /// </summary>
+        internal static string divider {
+            get {
+                return ResourceManager.GetString("divider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ellips.
+        /// </summary>
+        internal static string ellipse {
+            get {
+                return ResourceManager.GetString("ellipse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Avsluta.
+        /// </summary>
+        internal static string finish {
+            get {
+                return ResourceManager.GetString("finish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Geometriska figurer.
+        /// </summary>
+        internal static string geometricObjects {
+            get {
+                return ResourceManager.GetString("geometricObjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Höjd.
         /// </summary>
         internal static string height {
@@ -97,11 +160,56 @@ namespace _1DV402.S2.L3C {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ange menuval [0-8]:.
+        /// </summary>
+        internal static string menuChoice {
+            get {
+                return ResourceManager.GetString("menuChoice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Omkrets.
         /// </summary>
         internal static string perimeter {
             get {
                 return ResourceManager.GetString("perimeter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slumpa 2D-figurer.
+        /// </summary>
+        internal static string random2D {
+            get {
+                return ResourceManager.GetString("random2D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Slumpa 3D-figurer.
+        /// </summary>
+        internal static string random3D {
+            get {
+                return ResourceManager.GetString("random3D", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rektangel.
+        /// </summary>
+        internal static string rectangle {
+            get {
+                return ResourceManager.GetString("rectangle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sfär.
+        /// </summary>
+        internal static string sphere {
+            get {
+                return ResourceManager.GetString("sphere", resourceCulture);
             }
         }
         

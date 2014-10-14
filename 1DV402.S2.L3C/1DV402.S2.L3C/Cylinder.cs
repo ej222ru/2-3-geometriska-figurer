@@ -23,9 +23,9 @@ namespace _1DV402.S2.L3C
 			get { throw new NotImplementedException(); }
 		}
 
-		public Cuboid(double length, double width, double height)
-			: base(ShapeType.Cuboid, new Rectangle(length, width), height)
-		{
+		public Cylinder(double hradius, double vradius, double height)
+			: base(ShapeType.Cylinder, new Ellipse(hradius, vradius), height)
+		{ 
 		}
 	}
 }

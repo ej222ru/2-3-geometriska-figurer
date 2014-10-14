@@ -11,14 +11,14 @@ namespace _1DV402.S2.L3C
 
 		public Rectangle(double length, double width) : base(ShapeType.Rectangle, length, width) { }
 
-		public double Area
+		public override double Area
 		{
 			get
 			{
 				return (Length * Width);
 			}
 		} 
-		public double Perimeter 
+		public override double Perimeter 
 		{
 			get
 			{

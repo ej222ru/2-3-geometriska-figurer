@@ -14,14 +14,14 @@ namespace _1DV402.S2.L3C
 		public Ellipse(double diameter) : this(diameter, diameter) { }
 		public Ellipse(double hdiameter, double vdiameter) : base(ShapeType.Ellipse, hdiameter, vdiameter) { }
 
-		public double Area
+		public override double Area
 		{
 			get
 			{
 				return (Math.PI * (Length / 2) * (Width / 2));
 			}
 		} 
-		public double Perimeter 
+		public override double Perimeter 
 		{
 			get
 			{

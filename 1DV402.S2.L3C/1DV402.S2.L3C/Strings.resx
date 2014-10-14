@@ -120,6 +120,27 @@
   <data name="area" xml:space="preserve">
     <value>Area</value>
   </data>
+  <data name="circle" xml:space="preserve">
+    <value>Cirkel</value>
+  </data>
+  <data name="cuboid" xml:space="preserve">
+    <value>Rätblock</value>
+  </data>
+  <data name="cylinder" xml:space="preserve">
+    <value>Cylinder</value>
+  </data>
+  <data name="divider" xml:space="preserve">
+    <value>=====================================</value>
+  </data>
+  <data name="ellipse" xml:space="preserve">
+    <value>Ellips</value>
+  </data>
+  <data name="finish" xml:space="preserve">
+    <value>Avsluta</value>
+  </data>
+  <data name="geometricObjects" xml:space="preserve">
+    <value>Geometriska figurer</value>
+  </data>
   <data name="height" xml:space="preserve">
     <value>Höjd</value>
   </data>
@@ -129,8 +150,23 @@
   <data name="mantelArea" xml:space="preserve">
     <value>MantelArea</value>
   </data>
+  <data name="menuChoice" xml:space="preserve">
+    <value>Ange menuval [0-8]:</value>
+  </data>
   <data name="perimeter" xml:space="preserve">
     <value>Omkrets</value>
+  </data>
+  <data name="random2D" xml:space="preserve">
+    <value>Slumpa 2D-figurer</value>
+  </data>
+  <data name="random3D" xml:space="preserve">
+    <value>Slumpa 3D-figurer</value>
+  </data>
+  <data name="rectangle" xml:space="preserve">
+    <value>Rektangel</value>
+  </data>
+  <data name="sphere" xml:space="preserve">
+    <value>Sfär</value>
   </data>
   <data name="totalSurfaceArea" xml:space="preserve">
     <value>Begränsningsarea</value>
