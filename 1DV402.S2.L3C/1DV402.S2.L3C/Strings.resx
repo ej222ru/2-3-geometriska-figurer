@@ -120,11 +120,23 @@
   <data name="area" xml:space="preserve">
     <value>Area</value>
   </data>
+  <data name="height" xml:space="preserve">
+    <value>Höjd</value>
+  </data>
   <data name="length" xml:space="preserve">
     <value>Längd</value>
   </data>
+  <data name="mantelArea" xml:space="preserve">
+    <value>MantelArea</value>
+  </data>
   <data name="perimeter" xml:space="preserve">
     <value>Omkrets</value>
+  </data>
+  <data name="totalSurfaceArea" xml:space="preserve">
+    <value>Begränsningsarea</value>
+  </data>
+  <data name="volume" xml:space="preserve">
+    <value>Volym</value>
   </data>
   <data name="width" xml:space="preserve">
     <value>Bredd</value>

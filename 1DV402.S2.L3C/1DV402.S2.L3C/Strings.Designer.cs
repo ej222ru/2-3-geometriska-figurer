@@ -70,6 +70,15 @@ namespace _1DV402.S2.L3C {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Höjd.
+        /// </summary>
+        internal static string height {
+            get {
+                return ResourceManager.GetString("height", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Längd.
         /// </summary>
         internal static string length {
@@ -79,11 +88,38 @@ namespace _1DV402.S2.L3C {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MantelArea.
+        /// </summary>
+        internal static string mantelArea {
+            get {
+                return ResourceManager.GetString("mantelArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Omkrets.
         /// </summary>
         internal static string perimeter {
             get {
                 return ResourceManager.GetString("perimeter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Begränsningsarea.
+        /// </summary>
+        internal static string totalSurfaceArea {
+            get {
+                return ResourceManager.GetString("totalSurfaceArea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Volym.
+        /// </summary>
+        internal static string volume {
+            get {
+                return ResourceManager.GetString("volume", resourceCulture);
             }
         }
         
