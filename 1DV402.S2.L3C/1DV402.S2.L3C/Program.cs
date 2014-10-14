@@ -11,39 +11,198 @@ namespace _1DV402.S2.L3C
 	{
 		static void Main(string[] args)
 		{
-			int i = 0;
+
 			VievMenu();
-		}
-		Shape CreateShape(ShapeType shapeType)
-		{
-			switch (shapeType)
+			int choice = int.Parse(Console.ReadLine());
+
+			if ((choice < 0) || (choice > 8))
 			{
-				case ShapeType.Circle :
+			};
+
+			if ((choice > 0) && (choice < 7))
+			{
+
+				ShapeType shapeType = ShapeType.Circle;
+				switch (choice)
+				{
+					case 1:
+						{
+							shapeType = ShapeType.Rectangle;
+							break;
+						}
+					case 2:
+						{
+							shapeType = ShapeType.Circle;
+							break;
+						}
+					case 3:
+						{
+							shapeType = ShapeType.Ellipse;
+							break;
+						}
+					case 4:
+						{
+							shapeType = ShapeType.Cuboid;
+							break;
+						}
+					case 5:
+						{
+							shapeType = ShapeType.Cylinder;
+							break;
+						}
+					case 6:
+						{
+							shapeType = ShapeType.Sphere;
+							break;
+						}
+				}
+
+				Shape shape = CreateShape(shapeType);
+			}
+			else if (choice == 7)
+			{
+				Randomize2DShapes();
+			}
+			else if (choice == 8)
+			{
+//				Randomize3DShapes();
+			}
+
+	
+		}
+		private static Shape CreateShape(ShapeType shapeType)
+		{
+			Shape shape = null;
+			switch (shapeType)
+			{  
+				case ShapeType.Circle:
 					{
-					Console.Write( shapeType.AsText()  );
-						break;  
+
+						break;
+					}
+				case ShapeType.Cuboid :
+					{
+						Console.BackgroundColor = ConsoleColor.DarkRed;
+						Console.WriteLine(Strings.divider);
+						Console.WriteLine(Strings.cuboid.CenterAlignString(Strings.divider));
+						Console.WriteLine(Strings.divider);
+						Console.ResetColor();
+						Console.WriteLine("");
+						double[] sides = ReadDimensions(shapeType);
+						shape = new Cuboid(sides[0], sides[1], sides[2]);
+						break;
+					}
+				case ShapeType.Cylinder:
+					{
+
+						break;
+					}
+				case ShapeType.Ellipse:
+					{
+
+						break;
+					}
+				case ShapeType.Rectangle:
+					{
+
+						break;
+					}
+				case ShapeType.Sphere:
+					{
+
+						break;
 					}
 			}
 
-			Shape shape = new Cuboid(1,2,3);
 			return shape;
 		}
-/*
-		Shape2D[] Randomize2DShapes()
-		{
 
-		}
-		Shape3D[] Randomize3DShapes()
+		private static Shape2D[] Randomize2DShapes()
 		{
+			int noOfObjects = 5;
+			Shape2D[] shapes = new Shape2D[noOfObjects];
+			double length = 7.2;
+			double width = 14.3;
 
+			for (int i = 0; i < noOfObjects; i++)
+			{
+				int randomShapeType = 1;
+				switch (randomShapeType)
+				{
+					case 0 : shapes[i] = new Ellipse(length, width); break;
+					case 1 : shapes[i] = new Ellipse(length); break;
+					case 2 : shapes[i] = new Rectangle(length, width); break;
+				}
+			}
+			return shapes;
 		}
-		double[] ReadDimensions(ShapeType shapeType)
+		/*
+				private static Shape3D[] Randomize3DShapes()
+				{
+
+				}
+		 *		 */
+		private static double[] ReadDimensions(ShapeType shapeType)
 		{
+			string prompt = "";
+			int args = 0;
+			switch (shapeType)
+			{
+				case ShapeType.Circle:
+					{
+						prompt = Strings.circle;
+						args = 1;
+						break;
+					}
+				case ShapeType.Cuboid:
+					{
+						prompt = Strings.cuboidDoubles;
+						args = 3;
+						break;
+					}
+				case ShapeType.Cylinder:
+					{
+						prompt = Strings.cylinder;
+						args = 3;
+						break;
+					}
+				case ShapeType.Ellipse:
+					{
+						prompt = Strings.ellipse;
+						args = 2;
+						break;
+					}
+				case ShapeType.Rectangle:
+					{
+						prompt = Strings.rectangle;
+						args = 2;
+						break;
+					}
+				case ShapeType.Sphere:
+					{
+						prompt = Strings.sphere;
+						args = 3;
+						break;
+					}
+
+			}
+
+			return ReadDoublesGreaterThanZero(prompt, args);
 		} 
-		double[] ReadDoublesGreaterThanZero(string prompt, int numberOfValues=1)
+
+		private static double[] ReadDoublesGreaterThanZero(string prompt, int numberOfValues=1)
 		{
+			Console.Write(prompt);
+			string input = Console.ReadLine();
+			string[] args = input.Split(' ');
+			double[] arguments = new double [args.Length];
+			for (int i = 0; i < args.Length; i++)
+			{
+				arguments[i] = double.Parse(args[i]);
+			}
+			return arguments;
 		}
-*/
+
 		private static void VievMenu()
 		{
 			Console.BackgroundColor = ConsoleColor.DarkRed;

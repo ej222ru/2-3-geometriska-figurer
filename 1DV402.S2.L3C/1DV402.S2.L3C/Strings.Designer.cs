@@ -88,6 +88,15 @@ namespace _1DV402.S2.L3C {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ange figurens längd, bredd och höjd: .
+        /// </summary>
+        internal static string cuboidDoubles {
+            get {
+                return ResourceManager.GetString("cuboidDoubles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cylinder.
         /// </summary>
         internal static string cylinder {
@@ -160,7 +169,7 @@ namespace _1DV402.S2.L3C {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ange menuval [0-8]:.
+        ///   Looks up a localized string similar to Ange menuval [0-8]: .
         /// </summary>
         internal static string menuChoice {
             get {

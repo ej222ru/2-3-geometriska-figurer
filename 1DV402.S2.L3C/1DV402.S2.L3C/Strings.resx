@@ -126,6 +126,9 @@
   <data name="cuboid" xml:space="preserve">
     <value>Rätblock</value>
   </data>
+  <data name="cuboidDoubles" xml:space="preserve">
+    <value>Ange figurens längd, bredd och höjd: </value>
+  </data>
   <data name="cylinder" xml:space="preserve">
     <value>Cylinder</value>
   </data>
@@ -151,7 +154,7 @@
     <value>MantelArea</value>
   </data>
   <data name="menuChoice" xml:space="preserve">
-    <value>Ange menuval [0-8]:</value>
+    <value>Ange menuval [0-8]: </value>
   </data>
   <data name="perimeter" xml:space="preserve">
     <value>Omkrets</value>
