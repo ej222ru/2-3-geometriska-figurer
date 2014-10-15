@@ -61,24 +61,24 @@ namespace _1DV402.S2.L3C
 				}
 
 
-                Console.WriteLine();
-
-                Console.BackgroundColor = ConsoleColor.DarkBlue;
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.Write(Strings.continuePromt);
-                Console.CursorVisible = false;
-                continueCalc = Console.ReadKey(true).Key != ConsoleKey.N;
-                Console.CursorVisible = true;
-                Console.ResetColor();
 				Console.WriteLine();
-            } while (continueCalc);
 
-		} 
+				Console.BackgroundColor = ConsoleColor.DarkBlue;
+				Console.ForegroundColor = ConsoleColor.White;
+				Console.Write(Strings.continuePromt);
+				Console.CursorVisible = false;
+				continueCalc = Console.ReadKey(true).Key != ConsoleKey.N;
+				Console.CursorVisible = true;
+				Console.ResetColor();
+				Console.WriteLine();
+			} while (continueCalc);
+
+		}
 		private static Shape CreateShape(ShapeType shapeType)
 		{
 			Shape shape = null;
 			switch (shapeType)
-			{  
+			{
 				case ShapeType.Circle:
 					{
 						VievHeader(Strings.circle);
@@ -86,7 +86,7 @@ namespace _1DV402.S2.L3C
 						shape = new Ellipse(sides[0]);
 						break;
 					}
-				case ShapeType.Cuboid :
+				case ShapeType.Cuboid:
 					{
 						VievHeader(Strings.cuboid);
 						double[] sides = ReadDimensions(shapeType);
@@ -143,19 +143,19 @@ namespace _1DV402.S2.L3C
 				randomShapeType = generator.Next(0, 3);
 				switch (randomShapeType)
 				{
-					case 0 : 
+					case 0:
 						{
-							shapes[i] = new Ellipse(GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0)); 
+							shapes[i] = new Ellipse(GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0));
 							break;
 						}
-					case 1 : 
+					case 1:
 						{
-							shapes[i] = new Ellipse(GetRandomNumber(5.0, 100.0)); 
+							shapes[i] = new Ellipse(GetRandomNumber(5.0, 100.0));
 							break;
 						}
-					case 2 : 
+					case 2:
 						{
-							shapes[i] = new Rectangle(GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0)); 
+							shapes[i] = new Rectangle(GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0));
 							break;
 						}
 					default: break;
@@ -175,19 +175,19 @@ namespace _1DV402.S2.L3C
 				randomShapeType = generator.Next(3, 6);
 				switch (randomShapeType)
 				{
-					case 3 : 
+					case 3:
 						{
-							shapes[i] = new Cuboid(GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0)); 
+							shapes[i] = new Cuboid(GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0));
 							break;
 						}
-					case 4 : 
+					case 4:
 						{
-							shapes[i] = new Cylinder(GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0)); 
+							shapes[i] = new Cylinder(GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0));
 							break;
 						}
-					case 5 : 
+					case 5:
 						{
-							shapes[i] = new Sphere(GetRandomNumber(5.0, 100.0)); 
+							shapes[i] = new Sphere(GetRandomNumber(5.0, 100.0));
 							break;
 						}
 					default: break;
@@ -242,9 +242,9 @@ namespace _1DV402.S2.L3C
 				default: break;
 			}
 			return ReadDoublesGreaterThanZero(prompt, args);
-		} 
+		}
 
-		private static double[] ReadDoublesGreaterThanZero(string prompt, int numberOfValues=1)
+		private static double[] ReadDoublesGreaterThanZero(string prompt, int numberOfValues = 1)
 		{
 			bool done = false;
 			double[] arguments = null;
@@ -276,7 +276,7 @@ namespace _1DV402.S2.L3C
 				{
 					ViewMenuErrorMessage(Strings.ErrorMessage2);
 				}
-			}while (done == false);
+			} while (done == false);
 			return arguments;
 		}
 
@@ -300,19 +300,19 @@ namespace _1DV402.S2.L3C
 			Console.ResetColor();
 			Console.WriteLine("");
 			string menuChoice = "";
-			for (int i=0;i<9;i++)
+			for (int i = 0; i < 9; i++)
 			{
 				switch (i)
 				{
-					case 0: menuChoice = Strings.finish;break;
-					case 1: menuChoice = Strings.rectangle;break;
-					case 2: menuChoice = Strings.circle;break;
-					case 3: menuChoice = Strings.ellipse;break;
-					case 4: menuChoice = Strings.cuboid;break;
-					case 5: menuChoice = Strings.cylinder;break;
-					case 6: menuChoice = Strings.sphere;break;
-					case 7: menuChoice = Strings.random2D;break;
-					case 8: menuChoice = Strings.random3D;break;
+					case 0: menuChoice = Strings.finish; break;
+					case 1: menuChoice = Strings.rectangle; break;
+					case 2: menuChoice = Strings.circle; break;
+					case 3: menuChoice = Strings.ellipse; break;
+					case 4: menuChoice = Strings.cuboid; break;
+					case 5: menuChoice = Strings.cylinder; break;
+					case 6: menuChoice = Strings.sphere; break;
+					case 7: menuChoice = Strings.random2D; break;
+					case 8: menuChoice = Strings.random3D; break;
 				}
 				Console.WriteLine(string.Format("{0}. {1}.", i, menuChoice));
 			}
@@ -337,10 +337,44 @@ namespace _1DV402.S2.L3C
 		}
 		private static void ViewShapes(Shape[] shapes)
 		{
-			VievHeader(Strings.details);
-			for (int i = 0; i<shapes.Length; i++)
+			if (shapes.Length > 0)
 			{
-				Console.WriteLine(shapes[i].ToString("R"));
+				Console.BackgroundColor = ConsoleColor.DarkRed;
+				switch (shapes[0].ShapeType)
+				{
+					case ShapeType.Rectangle :
+					case ShapeType.Circle :
+					case ShapeType.Ellipse :
+						{
+
+
+							string text = string.Format("{0,-10}{1,10}{2,10}{3,10}{4,10}", "Figur", "Längd", "Bredd", "Omkrets", "Area");
+							for (int i = 0; i < text.Length; i++)
+								Console.Write("-");
+							Console.WriteLine("");
+							Console.WriteLine(text);
+							for (int i = 0; i < text.Length; i++)
+								Console.Write("-");
+							Console.WriteLine("");
+							break;
+						}
+					default:
+						{
+							string text = string.Format("{0,-10}{1,10}{2,10}{3,10}{4,15}{5,15}{6,15}", "Figur", "Längd", "Bredd", "Höjd", "Mantelarea", "Begräns.area", "Volym");
+							for (int i = 0; i < text.Length; i++)
+								Console.Write("-");
+							Console.WriteLine("");
+							Console.WriteLine(text);
+							for (int i = 0; i < text.Length; i++)
+								Console.Write("-");
+							Console.WriteLine("");
+							break;
+						}
+				}
+				for (int i = 0; i < shapes.Length; i++)
+				{
+					Console.WriteLine(shapes[i].ToString("R"));
+				}
 			}
 		}
 	}

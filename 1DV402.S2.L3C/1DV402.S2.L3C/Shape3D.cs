@@ -72,7 +72,7 @@ namespace _1DV402.S2.L3C
 			}
 			else if (format.Equals("R"))
 			{   // can I use string.join()  ???
-				return string.Format("{0,-10}{1,10:0.0}{2,10:0.0}{3,10:0.0}{4,10:0.0}{5,10:0.0}{6,10:0.0}", base.ShapeType.ToString(), _baseShape.Length, _baseShape.Width, Height, MantelArea, TotalSurfaceArea, Volume);
+				return string.Format("{0,-10}{1,10:0.0}{2,10:0.0}{3,10:0.0}{4,15:0.0}{5,15:0.0}{6,15:0.0}", base.ShapeType.ToString(), _baseShape.Length, _baseShape.Width, Height, MantelArea, TotalSurfaceArea, Volume);
 			}
 			else
 			{
