@@ -61,7 +61,7 @@ namespace _1DV402.S2.L3C
 		{
 			if ((format == "G") || (format == "") || (format == null))
 			{	// can I use string.join()  ???
-				return string.Format("{0,-7}:{1,10:0.0}\n{2,-7}:{3,10:0.0}\n{4,-7}:{5,10:0.0}\n{6,-7}:{7,10:0.0}\n{8,-7}:{9,10:0.0}\n{10,-7}:{11,10:0.0}\n",
+				return string.Format("{0,-17}:{1,10:0.0}\n{2,-17}:{3,10:0.0}\n{4,-17}:{5,10:0.0}\n{6,-17}:{7,10:0.0}\n{8,-17}:{9,10:0.0}\n{10,-17}:{11,10:0.0}\n",
 										Strings.length, _baseShape.Length,
 										Strings.width, _baseShape.Width,
 										Strings.height, Height,
@@ -78,28 +78,6 @@ namespace _1DV402.S2.L3C
 			{
 				throw new FormatException("Felaktig formatparameter till ToString, varken G eller R");
 			}
-	
-
-
-			if ((format == "G") || (format == "") || (format == null))
-				return string.Format("{0,-7}:{1:0.1}\n{2,-7}:{3,10}\n{4,-7}:{5,10}\n{6,-7}:{7,10}\n",
-										Strings.length, _baseShape.Length,
-										Strings.width, _baseShape.Width,
-										Strings.height, Height,
-										Strings.mantelArea, MantelArea,
-										Strings.totalSurfaceArea, TotalSurfaceArea,
-										Strings.volume, Volume);
-			else if (format.Equals("R"))
-			{
-				return string.Format("{0,-10}{1,10:0.1}{2,10:0.1}{3,10:0.1}{4,10:0.1}{5,10:0.1}{6,10:0.1}", base.ShapeType.ToString(),
-										_baseShape.Length, _baseShape.Width, Height, MantelArea, TotalSurfaceArea, Volume);
-			}
-			else 
-			{  
-				throw new FormatException("Felaktig formatparameter till ToString, varken G eller R");
-			}
 		}
-
-
 	}
 }

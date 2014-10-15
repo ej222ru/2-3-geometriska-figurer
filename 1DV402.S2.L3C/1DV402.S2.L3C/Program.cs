@@ -13,6 +13,8 @@ namespace _1DV402.S2.L3C
 
 		static void Main(string[] args)
 		{
+			Console.Title = Strings.Title;
+
 			bool continueCalc = false;
 			do
 			{
@@ -67,7 +69,7 @@ namespace _1DV402.S2.L3C
 				Console.ForegroundColor = ConsoleColor.White;
 				Console.Write(Strings.continuePromt);
 				Console.CursorVisible = false;
-				continueCalc = Console.ReadKey(true).Key != ConsoleKey.N;
+				continueCalc = Console.ReadKey(true).Key != ConsoleKey.Escape;
 				Console.CursorVisible = true;
 				Console.ResetColor();
 				Console.WriteLine();
@@ -118,7 +120,7 @@ namespace _1DV402.S2.L3C
 					{
 						VievHeader(Strings.sphere);
 						double[] sides = ReadDimensions(shapeType);
-						shape = new Cuboid(sides[0], sides[1], sides[2]);
+						shape = new Sphere(sides[0]);
 						break;
 					}
 				default: break;
@@ -256,11 +258,13 @@ namespace _1DV402.S2.L3C
 					string input = Console.ReadLine();
 					string[] args = input.Split(' ');
 					if (args.Length != numberOfValues)
-						throw new ArgumentException("Fel antal parametrar angivna!");
+						throw new ArgumentException("Fel antal parametrar angivna! Ange dom med mellanslag som separator");
 					arguments = new double[args.Length];
 					for (int i = 0; i < args.Length; i++)
 					{
 						arguments[i] = double.Parse(args[i]);
+						if (arguments[i] <= 0)
+							throw new Exception("Parametrar måste vara större än 0");
 					}
 					done = true;
 				}
@@ -268,9 +272,13 @@ namespace _1DV402.S2.L3C
 				{
 					ViewMenuErrorMessage(ex.Message);
 				}
-				catch (FormatException ex)
+				catch (FormatException)
 				{
-					ViewMenuErrorMessage(Strings.ErrorMessage2 + ex.Message);
+					ViewMenuErrorMessage("Du måste ge ett tal och om det är decimaler så ska det vara ett kommatecken, inte punkt");
+				}
+				catch (Exception ex)
+				{
+					ViewMenuErrorMessage(ex.Message);
 				}
 				catch
 				{
@@ -329,6 +337,7 @@ namespace _1DV402.S2.L3C
 			Console.ForegroundColor = ConsoleColor.White;
 			Console.WriteLine(message);
 			Console.ResetColor();
+			Console.WriteLine("");
 		}
 		private static void ViewShapeDetail(Shape shape)
 		{
@@ -340,37 +349,27 @@ namespace _1DV402.S2.L3C
 			if (shapes.Length > 0)
 			{
 				Console.BackgroundColor = ConsoleColor.DarkRed;
+				string text = null;
 				switch (shapes[0].ShapeType)
 				{
 					case ShapeType.Rectangle :
 					case ShapeType.Circle :
 					case ShapeType.Ellipse :
 						{
-
-
-							string text = string.Format("{0,-10}{1,10}{2,10}{3,10}{4,10}", "Figur", "Längd", "Bredd", "Omkrets", "Area");
-							for (int i = 0; i < text.Length; i++)
-								Console.Write("-");
-							Console.WriteLine("");
-							Console.WriteLine(text);
-							for (int i = 0; i < text.Length; i++)
-								Console.Write("-");
-							Console.WriteLine("");
+							text = string.Format("{0,-10}{1,10}{2,10}{3,10}{4,10}", "Figur", "Längd", "Bredd", "Omkrets", "Area");
 							break;
 						}
 					default:
 						{
-							string text = string.Format("{0,-10}{1,10}{2,10}{3,10}{4,15}{5,15}{6,15}", "Figur", "Längd", "Bredd", "Höjd", "Mantelarea", "Begräns.area", "Volym");
-							for (int i = 0; i < text.Length; i++)
-								Console.Write("-");
-							Console.WriteLine("");
-							Console.WriteLine(text);
-							for (int i = 0; i < text.Length; i++)
-								Console.Write("-");
-							Console.WriteLine("");
+							text = string.Format("{0,-10}{1,10}{2,10}{3,10}{4,15}{5,15}{6,15}", "Figur", "Längd", "Bredd", "Höjd", "Mantelarea", "Begräns.area", "Volym");
 							break;
 						}
 				}
+				string frameLine = new string('-', text.Length);
+				Console.WriteLine(frameLine);
+				Console.WriteLine(text);
+				Console.WriteLine(frameLine);
+				Console.WriteLine("");
 				for (int i = 0; i < shapes.Length; i++)
 				{
 					Console.WriteLine(shapes[i].ToString("R"));
