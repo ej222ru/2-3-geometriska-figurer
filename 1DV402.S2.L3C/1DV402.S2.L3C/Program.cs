@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+
 namespace _1DV402.S2.L3C
 {
 	class Program
@@ -129,7 +130,10 @@ namespace _1DV402.S2.L3C
 
 			return shape;
 		}
-
+		private static double GetRandomNumber(double min, double max)
+		{
+			return generator.NextDouble() * (max - min) + min;
+		}
 		private static Shape2D[] Randomize2DShapes()
 		{
 			int noOfObjects = generator.Next(5, 21);
@@ -159,6 +163,7 @@ namespace _1DV402.S2.L3C
 					default: break;
 				}
 			}
+			Array.Sort(shapes);
 			return shapes;
 		}
 		private static Shape3D[] Randomize3DShapes()
@@ -190,6 +195,7 @@ namespace _1DV402.S2.L3C
 					default: break;
 				}
 			}
+			Array.Sort(shapes);
 			return shapes;
 
 		}
