@@ -13,43 +13,66 @@ namespace _1DV402.S2.L3C
 
 		static void Main(string[] args)
 		{
-			generator = new Random();
-			Shape[] shapes = null;
-			VievMenu();
-			int choice = int.Parse(Console.ReadLine());
-
-			if ((choice < 0) || (choice > 8))
+			bool continueCalc = false;
+			do
 			{
-			};
-
-			if ((choice > 0) && (choice < 7))
-			{
-
-				ShapeType shapeType = ShapeType.Circle;
-				switch (choice)
+				generator = new Random();
+				Shape[] shapes = null;
+				VievMenu();
+				try
 				{
-					case 1: { shapeType = ShapeType.Rectangle;	break; }
-					case 2: { shapeType = ShapeType.Circle;		break; }
-					case 3: { shapeType = ShapeType.Ellipse;	break; }
-					case 4: { shapeType = ShapeType.Cuboid;		break; }
-					case 5:	{ shapeType = ShapeType.Cylinder;	break; }
-					case 6:	{ shapeType = ShapeType.Sphere;		break; }
-					default: break;
+					int choice = int.Parse(Console.ReadLine());
+
+					if ((choice < 0) || (choice > 8))
+					{
+						throw new Exception(Strings.ErrorMessage1);
+					}
+					else if ((choice > 0) && (choice < 7))
+					{
+
+						ShapeType shapeType = ShapeType.Circle;
+						switch (choice)
+						{
+							case 1: { shapeType = ShapeType.Rectangle; break; }
+							case 2: { shapeType = ShapeType.Circle; break; }
+							case 3: { shapeType = ShapeType.Ellipse; break; }
+							case 4: { shapeType = ShapeType.Cuboid; break; }
+							case 5: { shapeType = ShapeType.Cylinder; break; }
+							case 6: { shapeType = ShapeType.Sphere; break; }
+							default: break;
+						}
+						Shape shape = CreateShape(shapeType);
+						ViewShapeDetail(shape);
+					}
+					else if (choice == 7)
+					{
+						shapes = Randomize2DShapes();
+					}
+					else if (choice == 8)
+					{
+						shapes = Randomize3DShapes();
+					}
+					if (shapes != null)
+						ViewShapes(shapes);
 				}
-				Shape shape = CreateShape(shapeType);
-				ViewShapeDetail(shape);
-			}
-			else if (choice == 7)
-			{
-				shapes = Randomize2DShapes();
-			}
-			else if (choice == 8)
-			{
-				shapes = Randomize3DShapes();
-			}
-			if (shapes != null)
-				ViewShapes(shapes);
-	
+				catch (Exception ex)
+				{
+					ViewMenuErrorMessage(ex.Message);
+				}
+
+
+                Console.WriteLine();
+
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.Write(Strings.continuePromt);
+                Console.CursorVisible = false;
+                continueCalc = Console.ReadKey(true).Key != ConsoleKey.N;
+                Console.CursorVisible = true;
+                Console.ResetColor();
+				Console.WriteLine();
+            } while (continueCalc);
+
 		} 
 		private static Shape CreateShape(ShapeType shapeType)
 		{
@@ -223,14 +246,37 @@ namespace _1DV402.S2.L3C
 
 		private static double[] ReadDoublesGreaterThanZero(string prompt, int numberOfValues=1)
 		{
-			Console.Write(prompt);
-			string input = Console.ReadLine();
-			string[] args = input.Split(' ');
-			double[] arguments = new double [args.Length];
-			for (int i = 0; i < args.Length; i++)
+			bool done = false;
+			double[] arguments = null;
+			do
 			{
-				arguments[i] = double.Parse(args[i]);
-			}
+				try
+				{
+					Console.Write(prompt);
+					string input = Console.ReadLine();
+					string[] args = input.Split(' ');
+					if (args.Length != numberOfValues)
+						throw new ArgumentException("Fel antal parametrar angivna!");
+					arguments = new double[args.Length];
+					for (int i = 0; i < args.Length; i++)
+					{
+						arguments[i] = double.Parse(args[i]);
+					}
+					done = true;
+				}
+				catch (ArgumentException ex)
+				{
+					ViewMenuErrorMessage(ex.Message);
+				}
+				catch (FormatException ex)
+				{
+					ViewMenuErrorMessage(Strings.ErrorMessage2 + ex.Message);
+				}
+				catch
+				{
+					ViewMenuErrorMessage(Strings.ErrorMessage2);
+				}
+			}while (done == false);
 			return arguments;
 		}
 
@@ -243,7 +289,7 @@ namespace _1DV402.S2.L3C
 			Console.ResetColor();
 			Console.WriteLine("");
 		}
-	private static void VievMenu()
+		private static void VievMenu()
 		{
 			Console.BackgroundColor = ConsoleColor.DarkRed;
 			Console.WriteLine(Strings.divider);
@@ -276,21 +322,25 @@ namespace _1DV402.S2.L3C
 			Console.Write(Strings.menuChoice);
 		}
 
-		void ViewMenuErrorMessage()
+		private static void ViewMenuErrorMessage(string message)
 		{
-
+			Console.WriteLine("");
+			Console.BackgroundColor = ConsoleColor.Red;
+			Console.ForegroundColor = ConsoleColor.White;
+			Console.WriteLine(message);
+			Console.ResetColor();
 		}
 		private static void ViewShapeDetail(Shape shape)
 		{
+			VievHeader(Strings.details);
 			Console.WriteLine(shape.ToString("G"));
-			Console.WriteLine(shape.ToString("R"));
 		}
 		private static void ViewShapes(Shape[] shapes)
 		{
 			VievHeader(Strings.details);
 			for (int i = 0; i<shapes.Length; i++)
 			{
-				ViewShapeDetail(shapes[i]);
+				Console.WriteLine(shapes[i].ToString("R"));
 			}
 		}
 	}

@@ -126,6 +126,9 @@
   <data name="circleInputText" xml:space="preserve">
     <value>Ange figurens diameter: </value>
   </data>
+  <data name="continuePromt" xml:space="preserve">
+    <value>Tryck tangent för att fortsätta</value>
+  </data>
   <data name="cuboid" xml:space="preserve">
     <value>Rätblock</value>
   </data>
@@ -149,6 +152,12 @@
   </data>
   <data name="ellipseInputText" xml:space="preserve">
     <value>Ange figurens radier: </value>
+  </data>
+  <data name="ErrorMessage1" xml:space="preserve">
+    <value>FEL! Ange ett nummer mellan 0 och 8.</value>
+  </data>
+  <data name="ErrorMessage2" xml:space="preserve">
+    <value>FEL! Ett fel inträfade då figurens dimensioner tolkades.</value>
   </data>
   <data name="finish" xml:space="preserve">
     <value>Avsluta</value>

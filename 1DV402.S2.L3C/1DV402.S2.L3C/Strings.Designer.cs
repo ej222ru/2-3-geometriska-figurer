@@ -88,6 +88,15 @@ namespace _1DV402.S2.L3C {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tryck tangent för att fortsätta.
+        /// </summary>
+        internal static string continuePromt {
+            get {
+                return ResourceManager.GetString("continuePromt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rätblock.
         /// </summary>
         internal static string cuboid {
@@ -156,6 +165,24 @@ namespace _1DV402.S2.L3C {
         internal static string ellipseInputText {
             get {
                 return ResourceManager.GetString("ellipseInputText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FEL! Ange ett nummer mellan 0 och 8..
+        /// </summary>
+        internal static string ErrorMessage1 {
+            get {
+                return ResourceManager.GetString("ErrorMessage1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FEL! Ett fel inträfade då figurens dimensioner tolkades..
+        /// </summary>
+        internal static string ErrorMessage2 {
+            get {
+                return ResourceManager.GetString("ErrorMessage2", resourceCulture);
             }
         }
         
