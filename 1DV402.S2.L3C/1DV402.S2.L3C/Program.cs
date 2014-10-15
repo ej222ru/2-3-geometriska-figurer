@@ -129,10 +129,6 @@ namespace _1DV402.S2.L3C
 
 			return shape;
 		}
-		private static double GetRandomNumber(double min, double max)
-		{
-			return generator.NextDouble() * (max - min) + min;
-		}
 
 		private static Shape2D[] Randomize2DShapes()
 		{
@@ -165,7 +161,6 @@ namespace _1DV402.S2.L3C
 			}
 			return shapes;
 		}
-
 		private static Shape3D[] Randomize3DShapes()
 		{
 			int noOfObjects = generator.Next(5, 21);
@@ -245,7 +240,6 @@ namespace _1DV402.S2.L3C
 			}
 			return ReadDoublesGreaterThanZero(prompt, args);
 		}
-
 		private static double[] ReadDoublesGreaterThanZero(string prompt, int numberOfValues = 1)
 		{
 			bool done = false;
@@ -329,7 +323,6 @@ namespace _1DV402.S2.L3C
 			Console.WriteLine("");
 			Console.Write(Strings.menuChoice);
 		}
-
 		private static void ViewMenuErrorMessage(string message)
 		{
 			Console.WriteLine("");
