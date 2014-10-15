@@ -10,21 +10,21 @@ namespace _1DV402.S2.L3C
 	{
 		public override double MantelArea
 		{
-			get { throw new NotImplementedException(); }
+			get { return _baseShape.Area * 4; }
 		}
 
 		public override double TotalSurfaceArea
 		{
-			get { throw new NotImplementedException(); }
+			get { return MantelArea ; }
 		}
 
 		public override double Volume
 		{
-			get { throw new NotImplementedException(); }
+			get { return _baseShape.Area * (4/3) * Height; }
 		}
 
-		public Sphere(double hradius, double vradius, double height)
-			: base(ShapeType.Sphere, new Ellipse(hradius, vradius), height)
+		public Sphere( double radius)
+			: base(ShapeType.Sphere, new Ellipse(radius, radius), radius)
 		{ 
 		}
 	}

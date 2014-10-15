@@ -72,7 +72,7 @@ namespace _1DV402.S2.L3C
 		{
 			if ((format == "G") || (format == "") || (format == null))
 			{	// can I use string.join()  ???
-				return string.Format("{0,-7}:{1,10:0.1}\n{2,-7}:{3,10}\n{4,-7}:{5,10}\n{6,-7}:{7,10}\n",
+				return string.Format("{0,-7}:{1,10:0.0}\n{2,-7}:{3,10:0.0}\n{4,-7}:{5,10:0.0}\n{6,-7}:{7,10:0.0}\n",
 										Strings.length, Length,
 										Strings.width, Width,
 										Strings.perimeter, Perimeter,
@@ -80,7 +80,7 @@ namespace _1DV402.S2.L3C
 			}
 			else if (format.Equals("R"))
 			{   // can I use string.join()  ???
-				return string.Format("{0,-10}{1,10:0.1}{2,10:0.1}{3,10:0.1}{4,10:0.1}", base.ShapeType.ToString(), Length, Width, Perimeter, Area);
+				return string.Format("{0,-10}{1,10:0.0}{2,10:0.0}{3,10:0.0}{4,10:0.0}", base.ShapeType.ToString(), Length, Width, Perimeter, Area);
 			}
 			else
 			{

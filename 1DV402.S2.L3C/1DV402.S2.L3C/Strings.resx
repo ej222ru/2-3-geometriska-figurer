@@ -123,20 +123,32 @@
   <data name="circle" xml:space="preserve">
     <value>Cirkel</value>
   </data>
+  <data name="circleInputText" xml:space="preserve">
+    <value>Ange figurens diameter: </value>
+  </data>
   <data name="cuboid" xml:space="preserve">
     <value>Rätblock</value>
   </data>
-  <data name="cuboidDoubles" xml:space="preserve">
+  <data name="cuboidInputText" xml:space="preserve">
     <value>Ange figurens längd, bredd och höjd: </value>
   </data>
   <data name="cylinder" xml:space="preserve">
     <value>Cylinder</value>
+  </data>
+  <data name="cylinderInputText" xml:space="preserve">
+    <value>Ange figurens radier och höjd:</value>
+  </data>
+  <data name="details" xml:space="preserve">
+    <value>Detaljer</value>
   </data>
   <data name="divider" xml:space="preserve">
     <value>=====================================</value>
   </data>
   <data name="ellipse" xml:space="preserve">
     <value>Ellips</value>
+  </data>
+  <data name="ellipseInputText" xml:space="preserve">
+    <value>Ange figurens radier: </value>
   </data>
   <data name="finish" xml:space="preserve">
     <value>Avsluta</value>
@@ -168,8 +180,14 @@
   <data name="rectangle" xml:space="preserve">
     <value>Rektangel</value>
   </data>
+  <data name="rectangleInputText" xml:space="preserve">
+    <value>Ange figurens längd och bredd: </value>
+  </data>
   <data name="sphere" xml:space="preserve">
     <value>Sfär</value>
+  </data>
+  <data name="sphereInputText" xml:space="preserve">
+    <value>Ange figurens radie: </value>
   </data>
   <data name="totalSurfaceArea" xml:space="preserve">
     <value>Begränsningsarea</value>

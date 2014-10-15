@@ -10,17 +10,17 @@ namespace _1DV402.S2.L3C
 	{
 		public override double MantelArea
 		{
-			get { throw new NotImplementedException(); }
+			get { return _baseShape.Perimeter * Height; }
 		}
 
 		public override double TotalSurfaceArea
 		{
-			get { throw new NotImplementedException(); }
+			get { return MantelArea + 2 * _baseShape.Area; }
 		}
 
 		public override double Volume
 		{
-			get { throw new NotImplementedException(); }
+			get { return _baseShape.Area * Height; }
 		}
 
 		public Cylinder(double hradius, double vradius, double height)

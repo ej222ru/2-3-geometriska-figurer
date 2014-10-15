@@ -9,9 +9,12 @@ namespace _1DV402.S2.L3C
 {
 	class Program
 	{
+		private static Random generator;
+
 		static void Main(string[] args)
 		{
-
+			generator = new Random();
+			Shape[] shapes = null;
 			VievMenu();
 			int choice = int.Parse(Console.ReadLine());
 
@@ -25,51 +28,29 @@ namespace _1DV402.S2.L3C
 				ShapeType shapeType = ShapeType.Circle;
 				switch (choice)
 				{
-					case 1:
-						{
-							shapeType = ShapeType.Rectangle;
-							break;
-						}
-					case 2:
-						{
-							shapeType = ShapeType.Circle;
-							break;
-						}
-					case 3:
-						{
-							shapeType = ShapeType.Ellipse;
-							break;
-						}
-					case 4:
-						{
-							shapeType = ShapeType.Cuboid;
-							break;
-						}
-					case 5:
-						{
-							shapeType = ShapeType.Cylinder;
-							break;
-						}
-					case 6:
-						{
-							shapeType = ShapeType.Sphere;
-							break;
-						}
+					case 1: { shapeType = ShapeType.Rectangle;	break; }
+					case 2: { shapeType = ShapeType.Circle;		break; }
+					case 3: { shapeType = ShapeType.Ellipse;	break; }
+					case 4: { shapeType = ShapeType.Cuboid;		break; }
+					case 5:	{ shapeType = ShapeType.Cylinder;	break; }
+					case 6:	{ shapeType = ShapeType.Sphere;		break; }
+					default: break;
 				}
-
 				Shape shape = CreateShape(shapeType);
+				ViewShapeDetail(shape);
 			}
 			else if (choice == 7)
 			{
-				Randomize2DShapes();
+				shapes = Randomize2DShapes();
 			}
 			else if (choice == 8)
 			{
-//				Randomize3DShapes();
+				shapes = Randomize3DShapes();
 			}
-
+			if (shapes != null)
+				ViewShapes(shapes);
 	
-		}
+		} 
 		private static Shape CreateShape(ShapeType shapeType)
 		{
 			Shape shape = null;
@@ -77,71 +58,122 @@ namespace _1DV402.S2.L3C
 			{  
 				case ShapeType.Circle:
 					{
-
+						VievHeader(Strings.circle);
+						double[] sides = ReadDimensions(shapeType);
+						shape = new Ellipse(sides[0]);
 						break;
 					}
 				case ShapeType.Cuboid :
 					{
-						Console.BackgroundColor = ConsoleColor.DarkRed;
-						Console.WriteLine(Strings.divider);
-						Console.WriteLine(Strings.cuboid.CenterAlignString(Strings.divider));
-						Console.WriteLine(Strings.divider);
-						Console.ResetColor();
-						Console.WriteLine("");
+						VievHeader(Strings.cuboid);
 						double[] sides = ReadDimensions(shapeType);
 						shape = new Cuboid(sides[0], sides[1], sides[2]);
 						break;
 					}
 				case ShapeType.Cylinder:
 					{
-
+						VievHeader(Strings.cylinder);
+						double[] sides = ReadDimensions(shapeType);
+						shape = new Cylinder(sides[0], sides[1], sides[2]);
 						break;
 					}
 				case ShapeType.Ellipse:
 					{
-
+						VievHeader(Strings.ellipse);
+						double[] sides = ReadDimensions(shapeType);
+						shape = new Ellipse(sides[0], sides[1]);
 						break;
 					}
 				case ShapeType.Rectangle:
 					{
-
+						VievHeader(Strings.rectangle);
+						double[] sides = ReadDimensions(shapeType);
+						shape = new Rectangle(sides[0], sides[1]);
 						break;
 					}
 				case ShapeType.Sphere:
 					{
-
+						VievHeader(Strings.sphere);
+						double[] sides = ReadDimensions(shapeType);
+						shape = new Cuboid(sides[0], sides[1], sides[2]);
 						break;
 					}
+				default: break;
+
 			}
 
 			return shape;
 		}
+		private static double GetRandomNumber(double min, double max)
+		{
+			return generator.NextDouble() * (max - min) + min;
+		}
 
 		private static Shape2D[] Randomize2DShapes()
 		{
-			int noOfObjects = 5;
+			int noOfObjects = generator.Next(5, 21);
 			Shape2D[] shapes = new Shape2D[noOfObjects];
-			double length = 7.2;
-			double width = 14.3;
+			int randomShapeType;
 
 			for (int i = 0; i < noOfObjects; i++)
 			{
-				int randomShapeType = 1;
+				randomShapeType = generator.Next(0, 3);
 				switch (randomShapeType)
 				{
-					case 0 : shapes[i] = new Ellipse(length, width); break;
-					case 1 : shapes[i] = new Ellipse(length); break;
-					case 2 : shapes[i] = new Rectangle(length, width); break;
+					case 0 : 
+						{
+							shapes[i] = new Ellipse(GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0)); 
+							break;
+						}
+					case 1 : 
+						{
+							shapes[i] = new Ellipse(GetRandomNumber(5.0, 100.0)); 
+							break;
+						}
+					case 2 : 
+						{
+							shapes[i] = new Rectangle(GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0)); 
+							break;
+						}
+					default: break;
 				}
 			}
 			return shapes;
 		}
-		/*
-				private static Shape3D[] Randomize3DShapes()
-				{
 
+		private static Shape3D[] Randomize3DShapes()
+		{
+			int noOfObjects = generator.Next(5, 21);
+			Shape3D[] shapes = new Shape3D[noOfObjects];
+			int randomShapeType;
+
+			for (int i = 0; i < noOfObjects; i++)
+			{
+				randomShapeType = generator.Next(3, 6);
+				switch (randomShapeType)
+				{
+					case 3 : 
+						{
+							shapes[i] = new Cuboid(GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0)); 
+							break;
+						}
+					case 4 : 
+						{
+							shapes[i] = new Cylinder(GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0), GetRandomNumber(5.0, 100.0)); 
+							break;
+						}
+					case 5 : 
+						{
+							shapes[i] = new Sphere(GetRandomNumber(5.0, 100.0)); 
+							break;
+						}
+					default: break;
 				}
-		 *		 */
+			}
+			return shapes;
+
+		}
+
 		private static double[] ReadDimensions(ShapeType shapeType)
 		{
 			string prompt = "";
@@ -150,43 +182,42 @@ namespace _1DV402.S2.L3C
 			{
 				case ShapeType.Circle:
 					{
-						prompt = Strings.circle;
+						prompt = Strings.circleInputText;
 						args = 1;
 						break;
 					}
 				case ShapeType.Cuboid:
 					{
-						prompt = Strings.cuboidDoubles;
+						prompt = Strings.cuboidInputText;
 						args = 3;
 						break;
 					}
 				case ShapeType.Cylinder:
 					{
-						prompt = Strings.cylinder;
+						prompt = Strings.cylinderInputText;
 						args = 3;
 						break;
 					}
 				case ShapeType.Ellipse:
 					{
-						prompt = Strings.ellipse;
+						prompt = Strings.ellipseInputText;
 						args = 2;
 						break;
 					}
 				case ShapeType.Rectangle:
 					{
-						prompt = Strings.rectangle;
+						prompt = Strings.rectangleInputText;
 						args = 2;
 						break;
 					}
 				case ShapeType.Sphere:
 					{
-						prompt = Strings.sphere;
-						args = 3;
+						prompt = Strings.sphereInputText;
+						args = 1;
 						break;
 					}
-
+				default: break;
 			}
-
 			return ReadDoublesGreaterThanZero(prompt, args);
 		} 
 
@@ -203,7 +234,16 @@ namespace _1DV402.S2.L3C
 			return arguments;
 		}
 
-		private static void VievMenu()
+		private static void VievHeader(string text)
+		{
+			Console.BackgroundColor = ConsoleColor.DarkRed;
+			Console.WriteLine(Strings.divider);
+			Console.WriteLine(text.CenterAlignString(Strings.divider));
+			Console.WriteLine(Strings.divider);
+			Console.ResetColor();
+			Console.WriteLine("");
+		}
+	private static void VievMenu()
 		{
 			Console.BackgroundColor = ConsoleColor.DarkRed;
 			Console.WriteLine(Strings.divider);
@@ -240,13 +280,18 @@ namespace _1DV402.S2.L3C
 		{
 
 		}
-		void ViewShapeDetail(Shape shape)
+		private static void ViewShapeDetail(Shape shape)
 		{
-
+			Console.WriteLine(shape.ToString("G"));
+			Console.WriteLine(shape.ToString("R"));
 		}
-		void ViewShapes(Shape[] shapes)
+		private static void ViewShapes(Shape[] shapes)
 		{
-
+			VievHeader(Strings.details);
+			for (int i = 0; i<shapes.Length; i++)
+			{
+				ViewShapeDetail(shapes[i]);
+			}
 		}
 	}
 }

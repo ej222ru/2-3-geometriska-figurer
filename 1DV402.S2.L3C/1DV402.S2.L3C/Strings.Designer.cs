@@ -79,6 +79,15 @@ namespace _1DV402.S2.L3C {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ange figurens diameter: .
+        /// </summary>
+        internal static string circleInputText {
+            get {
+                return ResourceManager.GetString("circleInputText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rätblock.
         /// </summary>
         internal static string cuboid {
@@ -90,9 +99,9 @@ namespace _1DV402.S2.L3C {
         /// <summary>
         ///   Looks up a localized string similar to Ange figurens längd, bredd och höjd: .
         /// </summary>
-        internal static string cuboidDoubles {
+        internal static string cuboidInputText {
             get {
-                return ResourceManager.GetString("cuboidDoubles", resourceCulture);
+                return ResourceManager.GetString("cuboidInputText", resourceCulture);
             }
         }
         
@@ -102,6 +111,24 @@ namespace _1DV402.S2.L3C {
         internal static string cylinder {
             get {
                 return ResourceManager.GetString("cylinder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ange figurens radier och höjd:.
+        /// </summary>
+        internal static string cylinderInputText {
+            get {
+                return ResourceManager.GetString("cylinderInputText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Detaljer.
+        /// </summary>
+        internal static string details {
+            get {
+                return ResourceManager.GetString("details", resourceCulture);
             }
         }
         
@@ -120,6 +147,15 @@ namespace _1DV402.S2.L3C {
         internal static string ellipse {
             get {
                 return ResourceManager.GetString("ellipse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ange figurens radier: .
+        /// </summary>
+        internal static string ellipseInputText {
+            get {
+                return ResourceManager.GetString("ellipseInputText", resourceCulture);
             }
         }
         
@@ -214,11 +250,29 @@ namespace _1DV402.S2.L3C {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ange figurens längd och bredd: .
+        /// </summary>
+        internal static string rectangleInputText {
+            get {
+                return ResourceManager.GetString("rectangleInputText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sfär.
         /// </summary>
         internal static string sphere {
             get {
                 return ResourceManager.GetString("sphere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ange figurens radie: .
+        /// </summary>
+        internal static string sphereInputText {
+            get {
+                return ResourceManager.GetString("sphereInputText", resourceCulture);
             }
         }
         

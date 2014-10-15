@@ -8,9 +8,6 @@ namespace _1DV402.S2.L3C
 {
 	class Ellipse : Shape2D
 	{
-
-
-//		public Ellipse(double diameter) : base(ShapeType.Ellipse, diameter, diameter) { ;}
 		public Ellipse(double diameter) : this(diameter, diameter) { }
 		public Ellipse(double hdiameter, double vdiameter) : base(ShapeType.Ellipse, hdiameter, vdiameter) { }
 
