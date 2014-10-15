@@ -16,7 +16,7 @@ namespace _1DV402.S2.L3C
 		{
 			Console.Title = Strings.Title;
 
-			bool continueCalc = false;
+			bool continueCalc = true;
 			do
 			{
 				generator = new Random();
@@ -55,6 +55,10 @@ namespace _1DV402.S2.L3C
 					{
 						shapes = Randomize3DShapes();
 					}
+					else if (choice == 0)
+					{
+						continueCalc = false;
+					}
 					if (shapes != null)
 						ViewShapes(shapes);
 				}
@@ -63,17 +67,19 @@ namespace _1DV402.S2.L3C
 					ViewMenuErrorMessage(ex.Message);
 				}
 
+				if (continueCalc)
+				{
+					Console.WriteLine();
 
-				Console.WriteLine();
-
-				Console.BackgroundColor = ConsoleColor.DarkBlue;
-				Console.ForegroundColor = ConsoleColor.White;
-				Console.Write(Strings.continuePromt);
-				Console.CursorVisible = false;
-				continueCalc = Console.ReadKey(true).Key != ConsoleKey.Escape;
-				Console.CursorVisible = true;
-				Console.ResetColor();
-				Console.WriteLine();
+					Console.BackgroundColor = ConsoleColor.DarkBlue;
+					Console.ForegroundColor = ConsoleColor.White;
+					Console.Write(Strings.continuePromt);
+					Console.CursorVisible = false;
+					continueCalc = Console.ReadKey(true).Key != ConsoleKey.Escape;
+					Console.CursorVisible = true;
+					Console.ResetColor();
+					Console.WriteLine();
+				}
 			} while (continueCalc);
 
 		}
